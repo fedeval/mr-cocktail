@@ -2,9 +2,9 @@
 <ul>
   <% @cocktail.doses.each do |dose| %>
     <li>
-      <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %>
+      <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> | <%= link_to 'Remove', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to 'Back to the Bar', cocktails_path %>
+<%= link_to 'Back to the Bar', cocktails_path %> | <%= link_to 'Mix it up!', new_cocktail_dose_path(@cocktail) %>
