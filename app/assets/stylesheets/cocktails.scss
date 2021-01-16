@@ -1,3 +1,58 @@
 // Place all the styles related to the cocktails controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body {
+  background: linear-gradient(to bottom right, rgb(0,0,0), rgb(50,0,0));
+  text-align: center;
+  padding-top: 70px;
+}
+
+.home {
+  height: 100vh;
+}
+
+.btn {
+  border-color: rgb(120,0,0);
+  a {
+    text-decoration: none;
+    color: rgb(120,0,0);
+  }
+  &:hover {
+    border-color: rgb(160,0,0);
+  }
+  &:hover > a {
+    color: rgb(160,0,0);
+  }
+}
+
+.cocktails {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.cocktail {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/collection/96656859/350x200);
+  height: 200px;
+  width: 350px;
+  border-radius: 5px;
+  border: 2px solid rgb(120, 0, 0);
+  box-shadow: 2px 3px 6px rgba(120, 0, 0, .8);
+  position: relative;
+  a {
+    color: white;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    position: absolute;
+    bottom: 24px;
+    right: 12px;
+  }
+}
+
+#logo {
+  height: 70px;
+  width: 70px;
+}
