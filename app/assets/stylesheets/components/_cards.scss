@@ -1,0 +1,18 @@
+.cocktail-card {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/collection/96656859/350x200);
+  height: 200px;
+  width: 350px;
+  border-radius: 5px;
+  border: 2px solid rgb(120, 0, 0);
+  box-shadow: 2px 3px 6px rgba(120, 0, 0, .8);
+  position: relative;
+  a {
+    color: white;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+    position: absolute;
+    bottom: 24px;
+    right: 12px;
+  }
+}

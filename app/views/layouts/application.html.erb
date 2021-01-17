@@ -11,9 +11,22 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
+  <nav class="navbar fixed-top">
+    
+    <div class="container">
+      <%= link_to root_path do %>
+        <%= image_tag "logo_red", id: 'logo' %>
+      <% end %>
+      <%= link_to new_cocktail_path do %>
+        <button class="btn" type="button">Mix a new drink!</button>
+      <% end %>
+    </div>
+  </nav>
+  
   <body>
     <%= yield %>
   </body>
+
 </html>
 

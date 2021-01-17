@@ -2,8 +2,12 @@
   <div class="home">
     <%= image_tag 'mr_cocktail' %>
     <div class="home-buttons">
-      <button class="btn" type="button"><%= link_to "Browse cocktails", cocktails_path %></button>
-      <button class="btn" type="button"><%= link_to "Mix a new drink!", new_cocktail_path %></button>
+      <%= link_to cocktails_path do %>
+        <button class="btn" type="button">Browse cocktails</button>
+      <% end %>     
+      <%= link_to new_cocktail_path do %>
+        <button class="btn" type="button">Mix a new drink</button>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,16 +1,9 @@
-<nav class="navbar fixed-top">
-  <div class="container">
-    <%= link_to root_path do %>
-      <%= image_tag "mr_cocktail", id: 'logo' %>
-    <% end %>
-    <button class="btn" type="button"><%= link_to "Mix a new drink!", new_cocktail_path %></button>
-  </div>
-</nav>
-
 <div class="container">
+
   <div class="cocktails">
+    
     <% @cocktails.each do |cocktail| %>
-        <div class="cocktail">
+        <div class="cocktail-card">
           <%= link_to cocktail.name, cocktail_path(cocktail) %>
         </div>
     <% end %>
