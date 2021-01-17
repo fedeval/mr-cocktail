@@ -1,4 +1,16 @@
 // Specific CSS for your home-page
-.home {
+body {
   height: 100vh;
-} 
+}
+
+#home {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 70px;
+}
+
+#main_logo {
+  margin-bottom: 20px;
+}

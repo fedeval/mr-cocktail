@@ -1,13 +1,11 @@
-<div class="container">
+<div class="container" id="home">
   <div class="home">
-    <%= image_tag 'mr_cocktail' %>
+    <%= image_tag 'logo_main', id:"main_logo" %>
     <div class="home-buttons">
       <%= link_to cocktails_path do %>
         <button class="btn" type="button">Browse cocktails</button>
       <% end %>     
-      <%= link_to new_cocktail_path do %>
-        <button class="btn" type="button">Mix a new drink</button>
-      <% end %>
     </div>
+    <!-- TODO: Add a search form with select2 -->
   </div>
 </div>
