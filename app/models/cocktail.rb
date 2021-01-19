@@ -4,4 +4,12 @@ class Cocktail < ApplicationRecord
   has_many :reviews
 
   validates :name, presence: true, uniqueness: true
+
+  def self.search(search)
+    if search
+      where(["LOWER(name) LIKE ?", "%#{search.downcase}%"])
+    else 
+      all
+    end
+  end
 end
