@@ -18,6 +18,10 @@
       <%= link_to root_path do %>
         <%= image_tag "logo_red", id: 'logo' %>
       <% end %>
+      <%= simple_form_for :search, url: cocktails_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+        <%= f.input :name, input_html: {value: ""}, label: false %>   
+        <%= f.submit "Search", class: "btn" %>
+      <% end %>
       <%= link_to new_cocktail_path do %>
         <button class="btn" type="button">Mix a new drink!</button>
       <% end %>

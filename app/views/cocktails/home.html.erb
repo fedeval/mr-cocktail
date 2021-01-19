@@ -6,13 +6,5 @@
         <button class="btn" type="button">Browse cocktails</button>
       <% end %>     
     </div>
-    <!-- TODO: Add a search form with select2 -->
-    <br><br>
-    <h2>Search one of our cocktails:</h2>
-    <br>
-    <%= form_tag(cocktails_path, method: :get) do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag ("Search"), class: 'btn' %>
-    <% end %>
   </div>
 </div>

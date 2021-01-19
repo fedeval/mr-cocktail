@@ -7,8 +7,8 @@ class Cocktail < ApplicationRecord
 
   def self.search(search)
     if search
-      where(["LOWER(name) LIKE ?", "%#{search.downcase}%"])
-    else 
+      where(["LOWER(name) LIKE ?", "%#{search['name'].downcase}%"])
+    else
       all
     end
   end
