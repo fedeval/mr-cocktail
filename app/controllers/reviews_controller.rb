@@ -8,7 +8,8 @@ class ReviewsController < ApplicationController
       @review.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      @dose = Dose.new
+      render 'cocktails/show'
     end
   end
 

@@ -5,10 +5,12 @@ class DosesController < ApplicationController
     @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
     if @dose.save
+      # flash[:success] = "This task has been added."
       @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      @review = Review.new
+      render 'cocktails/show'
     end
   end
 
