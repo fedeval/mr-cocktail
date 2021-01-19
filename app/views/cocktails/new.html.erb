@@ -1,4 +1,8 @@
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit 'Add', class: 'btn btn-primary' %>
-<% end %>
+<div class="container">
+  <br><br>
+  <h2>What would you like to mix?</h2>
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.submit 'Add', class: 'btn' %>
+  <% end %>
+</div>
