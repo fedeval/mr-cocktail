@@ -16,7 +16,7 @@
     
     <div class="container">
       <%= link_to root_path do %>
-        <%= image_tag "logo_red", id: 'logo' %>
+        <%= image_tag "logo_red.png", id: 'logo' %>
       <% end %>
       <%= simple_form_for :search, url: cocktails_path, method: "GET", html: { class: 'form-inline' } do |f| %>
         <%= f.input :name, input_html: {value: ""}, label: false %>   
