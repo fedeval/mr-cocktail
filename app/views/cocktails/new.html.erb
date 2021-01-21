@@ -3,6 +3,7 @@
   <h2>What would you like to mix?</h2>
   <%= simple_form_for @cocktail do |f| %>
     <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit 'Add', class: 'btn' %>
   <% end %>
 </div>
