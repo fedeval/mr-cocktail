@@ -11,26 +11,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-  <nav class="navbar fixed-top">
-    
-    <div class="container">
-      <%= link_to root_path do %>
-        <%= image_tag "logo_red.png", id: 'logo' %>
-      <% end %>
-      <%= simple_form_for :search, url: cocktails_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-        <%= f.input :name, input_html: {value: ""}, label: false %>   
-        <%= f.submit "Search", class: "btn" %>
-      <% end %>
-      <%= link_to new_cocktail_path do %>
-        <button class="btn" type="button">Mix a new drink!</button>
-      <% end %>
-    </div>
-  </nav>
-  
+  <%= render 'shared/navbar' %>
   <body>
     <%= yield %>
   </body>
-
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 </html>
 

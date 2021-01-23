@@ -58,3 +58,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 # Cloudinary for asset management
 gem 'cloudinary', '~> 1.16.0'
 
+# Devise for authentication
+gem 'devise'

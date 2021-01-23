@@ -1,10 +1,10 @@
 .navbar {
   justify-content: space-between;
   background: white;
-}
-
-.navbar .navbar-collapse {
-  flex-grow: 0;
+  list-style-position: initial;
+  list-style-image: initial;
+  list-style-type: none;  display: flex;
+  flex-direction: row;
 }
 
 .navbar-lewagon .navbar-brand img {
