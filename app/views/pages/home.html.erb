@@ -1,10 +1,18 @@
-<div class="container" id="home">
+<div class="wrapper" id="home">
   <div class="home">
     <%= image_tag 'logo_main.png', id:"main_logo" %>
-    <div class="home-buttons">
-      <%= link_to cocktails_path do %>
-        <button class="btn" type="button">Browse cocktails</button>
-      <% end %>     
+    <div class="home-actions">
+      <div class="search">
+        <%= simple_form_for :search, url: cocktails_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :name, input_html: {value: ""}, label: false %>   
+          <%= f.submit "Search", class: "btn" %>
+        <% end %>
+      </div>
+      <div class="browse">
+        <%= link_to cocktails_path do %>
+          <button class="btn" type="button">Browse cocktails</button>
+        <% end %>     
+      </div>
     </div>
   </div>
 </div>

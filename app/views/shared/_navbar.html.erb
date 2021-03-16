@@ -11,13 +11,6 @@
     <% if user_signed_in? %>
 
       <li class="nav-item">
-        <%= simple_form_for :search, url: cocktails_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-          <%= f.input :name, input_html: {value: ""}, label: false %>   
-          <%= f.submit "Search", class: "btn" %>
-        <% end %>
-      </li>
-
-      <li class="nav-item">
         <%= link_to new_cocktail_path do %>
           <button class="btn" type="button">Mix a new drink!</button>
         <% end %>
