@@ -1,0 +1,15 @@
+.show-container {
+  display: flex;
+}
+
+.show-column {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100vh;
+}
+
+.show-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
