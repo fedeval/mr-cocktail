@@ -1,41 +1,59 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="cocktails-wrapper">
+  <div class="show-container">
+    <div class="show-left">
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="review-form">
+        <h2>Review this drink:</h2>
+        <%= simple_form_for [@cocktail, @review] do |f| %>
+          <%= f.input :rating%>
+          <%= f.input :content %>
+          <%= f.submit "Review the #{@cocktail.name}", class: 'btn' %>
+        <% end %>
+      </div>
+      <%= link_to 'Back to the Bar', cocktails_path, {class: 'btn'} %>
+    </div>
+    <div class="show-right">
+      <div class="cocktail-info">
+        <h1><%= @cocktail.name %></h1>
+        <div class="cocktail-description">
+          <p>Lorem ipsum...</p>
+        </div>
+      </div>
+      <div class="cocktail-instructions">
+        <div class="cocktail-ingredients">
+          <ul class="list-inline">
+            <% @cocktail.doses.each do |dose| %>
+              <li class="list-inline-item">
+                <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> | <%= link_to 'Remove', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </li>
+            <% end %>
+          </ul>          
+        </div>
+        <div class="cocktail-recipe">
+          <p>Lorem ipsum...</p>
+        </div>
+      </div>
+      <div class="cocktails-reviews">
+        <ul class="list-inline">
+          <% @cocktail.reviews.each do |review| %>
+            <li class="list-inline-item">
+              <%= '⭐️' * review.rating %>: <%= review.content %>
+            </li>
+          <% end %>
+        </ul>    
+      </div>
+    </div>
+  </div>
  
-  <ul class="list-inline">
-    <% @cocktail.doses.each do |dose| %>
-      <li class="list-inline-item">
-        <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> | <%= link_to 'Remove', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
 
-  <ul class="list-inline">
-  <% @cocktail.reviews.each do |review| %>
-    <li class="list-inline-item">
-      <%= '⭐️' * review.rating %>: <%= review.content %>
-    </li>
-  <% end %>
-</ul>
 
-  <%= link_to 'Back to the Bar', cocktails_path, {class: 'btn'} %>
 
-  <br><br>
+  
+</div>
 
-  <h2>Add a new ingredient to the mix!</h2>
+<!--   <h2>Add a new ingredient to the mix!</h2>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.association :ingredient, input_html: { class: 'select2' } %>
     <%= f.input :description %>
     <%= f.submit "Add to the #{@cocktail.name}", class: 'btn' %>
-  <% end %>
-
-  <br><br>
-
-  <h2>Review this drink:</h2>
-  <%= simple_form_for [@cocktail, @review] do |f| %>
-    <%= f.input :rating%>
-    <%= f.input :content %>
-    <%= f.submit "Review the #{@cocktail.name}", class: 'btn' %>
-  <% end %>
-  
-</div>
+  <% end %> -->
