@@ -48,7 +48,7 @@ cocktails['drinks'].sample(20).each do |cocktail|
     if key.include?('strIngredient') && !value.nil?
       Dose.create(
         cocktail: new_cocktail,
-        ingredient: Ingredient.find_by(name: value.strip),
+        ingredient: Ingredient.find_by(name: value.strip) || Ingredient.create(name: value.strip),
         description: cocktail_info['drinks'].first["strMeasure#{ingredient_num}"]
       )
       ingredient_num += 1
