@@ -2,8 +2,17 @@
   border-color: rgb(120,0,0);
   color: rgb(120,0,0);
   &:hover {
-    border-color: rgb(160,0,0);
-    color: rgb(160,0,0);
+    border-color: white;
+    color: white;
+    background:rgb(120,0,0);
     text-decoration: none;
   }
+}
+
+#btn-to-index {
+  margin-top: 20px;
+}
+
+#btn-form {
+  width: 100%;
 }

@@ -7,6 +7,7 @@ class Cocktail < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :photo, presence: true
+  validates :recipe, presence: true
 
   def self.search(search)
     if search

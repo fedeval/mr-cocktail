@@ -1,41 +1,57 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="cocktails-wrapper">
+  <div class="show-container">
+    <div class="show-column" >
+      <%= cl_image_tag @cocktail.photo.key, height: 450, width: 350, crop: :fill, class: 'cocktail-image' %>
+      <%= link_to 'Back to the Bar', cocktails_path, {class: 'btn', id: 'btn-to-index'} %>
+    </div>
+    <div class="show-column" style="width: 90%;">
+      <div class="cocktail-name">
+        <h1><%= @cocktail.name %></h1>
+      </div>
+      <div class="show-grid" id="cocktail-instructions">
+        <div class="cocktail-ingredients">
+            <h3>Ingredients</h3>
+            <% @cocktail.doses.each do |dose| %>
+              <div class="ingredient-info">
+                <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %>
+              </div>
+            <% end %>        
+        </div>
+        <div class="cocktail-recipe">
+          <h3>Recipe</h3>
+          <p><%= @cocktail.recipe %></p>
+        </div>
+      </div>
+      <div class="show-grid" id="cocktail-reviews">
+        <div class="review-display">
+          <h3>Reviews</h3>
+            <% @cocktail.reviews.each do |review| %>
+              <div class="review">
+                <%= '⭐️' * review.rating %>: <%= review.content %>              
+              </div>
+            <% end %> 
+        </div>
+        <div class="review-form">
+          <h3>Add a Review</h3>
+          <%= simple_form_for [@cocktail, @review] do |f| %>
+            <%= f.input :rating, label: false, collection: 1..5, prompt: 'Your rating...' %>
+            <%= f.input :content, label: false, placeholder: 'Comments...' %>
+            <%= f.submit "Review this Cocktail", class: 'btn', id: 'btn-form' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
  
-  <ul class="list-inline">
-    <% @cocktail.doses.each do |dose| %>
-      <li class="list-inline-item">
-        <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %> | <%= link_to 'Remove', dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
 
-  <ul class="list-inline">
-  <% @cocktail.reviews.each do |review| %>
-    <li class="list-inline-item">
-      <%= '⭐️' * review.rating %>: <%= review.content %>
-    </li>
-  <% end %>
-</ul>
 
-  <%= link_to 'Back to the Bar', cocktails_path, {class: 'btn'} %>
 
-  <br><br>
+  
+</div>
 
-  <h2>Add a new ingredient to the mix!</h2>
+<!--   <h2>Add a new ingredient to the mix!</h2>
   <%= simple_form_for [@cocktail, @dose] do |f| %>
     <%= f.association :ingredient, input_html: { class: 'select2' } %>
     <%= f.input :description %>
     <%= f.submit "Add to the #{@cocktail.name}", class: 'btn' %>
-  <% end %>
-
-  <br><br>
-
-  <h2>Review this drink:</h2>
-  <%= simple_form_for [@cocktail, @review] do |f| %>
-    <%= f.input :rating%>
-    <%= f.input :content %>
-    <%= f.submit "Review the #{@cocktail.name}", class: 'btn' %>
-  <% end %>
-  
-</div>
+  <% end %> -->
