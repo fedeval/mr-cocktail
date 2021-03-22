@@ -11,5 +11,24 @@
 
 .show-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 60% 40%;
+}
+
+.cocktail-name {
+  border-bottom: 1px solid black;
+  text-align: left;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+#cocktail-instructions {
+  padding: 14px 0;
+  text-align: left;
+  border-bottom: 1px solid black;
+}
+
+#cocktail-reviews {
+  text-align: left;
+  padding:  14px 0;
 }
