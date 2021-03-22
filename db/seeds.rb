@@ -34,18 +34,21 @@ cocktails['drinks'].sample(20).each do |cocktail|
   new_cocktail = Cocktail.new(name: cocktail['strDrink'])
   thumbnail = URI.open(cocktail['strDrinkThumb'])
   new_cocktail.photo.attach(io: thumbnail, filename: 'nes.png', content_type: 'image/png')
-  new_cocktail.save
+  
 
   cocktail_url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{cocktail['idDrink']}"
   cocktail_response = open(cocktail_url).read
   cocktail_info = JSON.parse(cocktail_response)
-  
+
+  new_cocktail.recipe = cocktail_info['drinks'].first['strInstructions'].strip
+  new_cocktail.save
+
   ingredient_num = 1
   cocktail_info['drinks'].first.each do |key, value|
     if key.include?('strIngredient') && !value.nil?
       Dose.create(
         cocktail: new_cocktail,
-        ingredient: Ingredient.find_by(name: value),
+        ingredient: Ingredient.find_by(name: value.strip),
         description: cocktail_info['drinks'].first["strMeasure#{ingredient_num}"]
       )
       ingredient_num += 1
