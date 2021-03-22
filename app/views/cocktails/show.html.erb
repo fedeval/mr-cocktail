@@ -4,7 +4,7 @@
       <%= cl_image_tag @cocktail.photo.key, height: 450, width: 350, crop: :fill, class: 'cocktail-image' %>
       <%= link_to 'Back to the Bar', cocktails_path, {class: 'btn', id: 'btn-to-index'} %>
     </div>
-    <div class="show-column">
+    <div class="show-column" style="width: 90%;">
       <div class="cocktail-name">
         <h1><%= @cocktail.name %></h1>
       </div>
@@ -32,11 +32,11 @@
             <% end %> 
         </div>
         <div class="review-form">
-          <h3>Add a review:</h3>
+          <h3>Add a Review</h3>
           <%= simple_form_for [@cocktail, @review] do |f| %>
-            <%= f.input :rating%>
-            <%= f.input :content %>
-            <%= f.submit "Review the #{@cocktail.name}", class: 'btn', id: 'btn-form' %>
+            <%= f.input :rating, label: false, collection: 1..5, prompt: 'Your rating...' %>
+            <%= f.input :content, label: false, placeholder: 'Comments...' %>
+            <%= f.submit "Review this Cocktail", class: 'btn', id: 'btn-form' %>
           <% end %>
         </div>
       </div>
