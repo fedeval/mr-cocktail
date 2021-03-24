@@ -1,6 +1,13 @@
+<h2>Existing ingredients</h2>
+<% @cocktail.doses.each do |dose| %>
+  <div class="ingredient-info">
+    <%= Ingredient.find(dose.ingredient_id).name %>: <%= dose.description %>
+  </div>
+<% end %>
 <h2>Add a new ingredient to the mix!</h2>
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.association :ingredient, input_html: { class: 'select2' } %>
   <%= f.input :description %>
-  <%= f.submit "Add to the #{@cocktail.name}", class: 'btn' %>
+  <%= f.submit "Add dose", class: 'btn' %>
 <% end %>
+<%= link_to "Go to my cocktails", cocktails_path, class: 'btn' %>
