@@ -31,7 +31,7 @@ cocktails_response = open(cocktails_url).read
 cocktails = JSON.parse(cocktails_response)
 
 cocktails['drinks'].sample(20).each do |cocktail|
-  new_cocktail = Cocktail.new(name: cocktail['strDrink'])
+  new_cocktail = Cocktail.new(name: cocktail['strDrink'], user: User.all.sample)
   thumbnail = URI.open(cocktail['strDrinkThumb'])
   new_cocktail.photo.attach(io: thumbnail, filename: 'nes.png', content_type: 'image/png')
   
