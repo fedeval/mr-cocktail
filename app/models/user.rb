@@ -5,4 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cocktails
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  def full_name
+    return "#{self.first_name} #{self.last_name}"
+  end
 end
