@@ -15,9 +15,9 @@ Dose.destroy_all
 User.destroy_all
 
 puts 'create test users'
-User.create(email: 'federico@test.com', password: '123456')
-User.create(email: 'christina@test.com', password: '123456')
-User.create(email: 'ilaria@test.com', password: '123456')
+User.create(email: 'federico@test.com', password: '123456', first_name: 'Federico', last_name: 'Valenza')
+User.create(email: 'christina@test.com', password: '123456', first_name: 'Christina', last_name: 'Koufopoulou')
+User.create(email: 'ilaria@test.com', password: '123456', first_name: 'Ilaria', last_name: 'Valenza')
 
 puts 'generate ingredients'
 ingredients_url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
