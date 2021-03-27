@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :find_cocktail, only: [:show, :destroy]
+  before_action :find_cocktail, only: [:show, :edit, :destroy]
 
   def index
     @cocktails = Cocktail.search(params[:search])
@@ -22,6 +22,12 @@ class CocktailsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @doses = @cocktail.doses
+  end
+
+  def update; end
 
   def destroy
     @cocktail.destroy
