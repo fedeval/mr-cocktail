@@ -18,5 +18,8 @@
       <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
     </div>
   </div>
+  <div class="buttons-box">
+    <%= link_to "Back to Dashboard", dashboard_index_path, class: "btn" %>
+    <%= link_to "Cocktail Page", cocktail_path(@cocktail), class: "btn" %>
+  </div>
 </div>
-<%= link_to "Back to Dashboard", dashboard_index_path, class: "btn" %>
