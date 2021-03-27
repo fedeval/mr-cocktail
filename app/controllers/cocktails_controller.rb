@@ -1,10 +1,11 @@
 class CocktailsController < ApplicationController
+  before_actions :find_cocktail, only: [:show, :destroy]
+
   def index
     @cocktails = Cocktail.search(params[:search])
   end
 
   def show
-    @cocktail = Cocktail.find(params[:id])
     @review = Review.new
   end
 
@@ -22,9 +23,18 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
   def cocktail_params
     params.require(:cocktail).permit(:name, :search, :photo, :recipe)
   end
+
+  def find_cocktail
+    @cocktail = Cocktail.find(params[:id])
+  end
+
 end
