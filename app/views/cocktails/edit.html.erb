@@ -1,4 +1,22 @@
-<p><%= @cocktail.name %></p>
-<% @doses.each do |thing| %>
-  <%= "#{thing.ingredient}: #{thing.description}" %>
-<% end %>
+<div class="form-wrapper">
+  <div class="form">
+    <%= simple_form_for [@cocktail] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :recipe %>
+      <%= f.input :photo %>
+      <%= f.submit "Update cocktail", class: "btn" %>
+    <% end %>
+  </div>
+  <div class="doses">
+    <% @doses.each do |dose| %>
+      <div class="remove-dose">
+        <%= "#{dose.ingredient.name} - #{dose.description}" %>
+        <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?"} %>
+      </div>
+    <% end %>
+    <div class="add-dose">
+      <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
+    </div>
+  </div>
+</div>
+<%= link_to "Back to Dashboard", dashboard_index_path, class: "btn" %>
