@@ -1,24 +1,28 @@
 <div class="form-wrapper">
-  <div class="form">
-    <%= simple_form_for [@cocktail] do |f| %>
-      <%= f.input :name %>
-      <%= f.input :recipe %>
-      <%= f.input :photo %>
-      <%= f.submit "Update cocktail", class: "btn" %>
-    <% end %>
-  </div>
-  <div class="doses">
-    <% @doses.each do |dose| %>
-      <div class="remove-dose">
-        <%= "#{dose.ingredient.name} - #{dose.description}" %>
-        <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?"} %>
+  <div class="edit-container">
+    <div class="form">
+      <%= simple_form_for [@cocktail] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :recipe %>
+        <%= f.input :photo %>
+        <%= f.submit "Update cocktail", class: "btn" %>
+      <% end %>
+    </div>
+    <div class="doses-container">
+      <div class="doses">
+        <% @doses.each do |dose| %>
+          <div class="remove-dose">
+            <%= "#{dose.ingredient.name} - #{dose.description}" %>
+            <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?"} %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <div class="add-dose">
-      <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
+      <div class="add-dose">
+        <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn" %>
+      </div>
     </div>
   </div>
-  <div class="buttons-box">
+  <div class="buttons-container">
     <%= link_to "Back to Dashboard", dashboard_index_path, class: "btn" %>
     <%= link_to "Cocktail Page", cocktail_path(@cocktail), class: "btn" %>
   </div>
