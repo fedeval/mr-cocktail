@@ -43,7 +43,7 @@
                 <% end %>              
               </div>
               <div id="delete">
-                <%= link_to "#" do %>
+                <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?' } do %>
                   <i class="far fa-trash-alt"></i>
                 <% end %>              
               </div>

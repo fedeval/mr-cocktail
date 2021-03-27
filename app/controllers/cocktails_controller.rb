@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_actions :find_cocktail, only: [:show, :destroy]
+  before_action :find_cocktail, only: [:show, :destroy]
 
   def index
     @cocktails = Cocktail.search(params[:search])
@@ -24,7 +24,8 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-
+    @cocktail.destroy
+    redirect_to dashboard_index_path
   end
 
   private
@@ -36,5 +37,4 @@ class CocktailsController < ApplicationController
   def find_cocktail
     @cocktail = Cocktail.find(params[:id])
   end
-
 end
