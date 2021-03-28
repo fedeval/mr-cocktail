@@ -14,8 +14,7 @@
         </div>
         <div class="dashboard-card-data">
           <i class="fas fa-heart"></i>
-          <!-- TODO: add option to favorite cocktails -->
-          <%= 10 %>
+          <%= @user.favorites.count %>
         </div>
       </div>
     </div>
@@ -52,15 +51,15 @@
     </div>
     <div class="dashboard-body-card">
       <div class="dashboard-favorites-grid">  
-        <% @cocktails.sample(14).each do |favorite| %>
+        <% @user.favorites.each do |favorite| %>
           <div class="dashboard-favorite-card">
             <div class="cocktail-pic">
-              <%= link_to cocktail_path(favorite) do %>
-                <%= cl_image_tag favorite.photo.key, width: 120, height: 120, crop: :fill %>
+              <%= link_to cocktail_path(favorite.cocktail) do %>
+                <%= cl_image_tag favorite.cocktail.photo.key, width: 120, height: 120, crop: :fill %>
               <% end %>
             </div>
             <div id="name-rating">
-              <p><%= favorite.name %></p>
+              <p><%= favorite.cocktail.name %></p>
               <!-- TODO: connect user to review -->
               <p><%= '⭐️' * 4.5 %></p>
             </div>

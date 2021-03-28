@@ -8,8 +8,9 @@
       <div class="cocktail-name">
         <h1>
           <%= @cocktail.name %>
+          <!-- TODO: fix UI -->
           <% if @cocktail.favorite?(current_user) %>
-            <%= '⭐️' %>
+            <%= '♥︎' %>
           <% else %>
             <%= link_to "Add to favorites", cocktail_favorites_path(@cocktail), method: :post %>    
           <% end %>
