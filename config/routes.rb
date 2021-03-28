@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :cocktails do
     resources :doses, only: [:new, :create]
     resources :reviews, only: [:new, :create]
+    resources :favorites, only: [:create]
   end
   resources :doses, only: [:destroy]
   resources :dashboard, only: [:index]
