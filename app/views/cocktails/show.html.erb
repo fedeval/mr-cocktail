@@ -8,7 +8,11 @@
       <div class="cocktail-name">
         <h1>
           <%= @cocktail.name %>
-          <%= link_to "Add to favorites", cocktail_favorites_path(@cocktail), method: :post %>    
+          <% if @cocktail.favorite?(current_user) %>
+            <%= '⭐️' %>
+          <% else %>
+            <%= link_to "Add to favorites", cocktail_favorites_path(@cocktail), method: :post %>    
+          <% end %>
         </h1>
       </div>
       <div class="show-grid" id="cocktail-instructions">

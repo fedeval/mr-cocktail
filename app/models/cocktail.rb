@@ -25,4 +25,9 @@ class Cocktail < ApplicationRecord
 
     @ratings.reduce(0) { |avg, curr_rating| avg + (curr_rating / reviews.length) }
   end
+
+  def favorite?(user)
+    user_favorite_cocktails = user.favorites.map { |favorite| favorite.cocktail }
+    user_favorite_cocktails.include? self
+  end
 end
