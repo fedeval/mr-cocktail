@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .dashboard-wrapper {
-  display: flex;
-  align-items: center;
-  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 15% 40% 40%;
+  margin-top: 45px;
   margin-left: 10%;
   margin-right: 10%;
-  flex-direction: column;
+  grid-gap: 20px;
 }
 
 .dashboard-body {
@@ -16,19 +16,42 @@
   grid-template-columns: 35% 65%;
 }
 
-.dashboard-favorites-grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-}
-
 .dashboard-user-data {
   display: flex;
   justify-content: space-around;
 }
 
-#name-rating #edit-delete {
+#edit-delete {
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
+
+#name-rating {
+  padding-top: 20px;
+  p {
+    margin: 0;
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+
+.dashboard-index-btn {
+  margin-top: auto;
+}
+
+.icon {
+  color: black;
+  padding: 8px;
+  font-size: 20px;
+  opacity: 0.4;
+  &:hover {
+    opacity: 1;
+  }
+} 
+
+.cocktail-img-small {
+  border-radius: 8px;
+  padding: 4px;
 }
