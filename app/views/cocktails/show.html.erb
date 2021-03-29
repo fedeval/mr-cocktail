@@ -6,7 +6,15 @@
     </div>
     <div class="show-column" style="width: 90%;">
       <div class="cocktail-name">
-        <h1><%= @cocktail.name %></h1>
+        <h1>
+          <%= @cocktail.name %>
+          <!-- TODO: fix UI -->
+          <% if @cocktail.favorite?(current_user) %>
+            <%= '♥︎' %>
+          <% else %>
+            <%= link_to "Add to favorites", cocktail_favorites_path(@cocktail), method: :post %>    
+          <% end %>
+        </h1>
       </div>
       <div class="show-grid" id="cocktail-instructions">
         <div class="cocktail-ingredients">

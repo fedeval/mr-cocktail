@@ -18,4 +18,16 @@ class Cocktail < ApplicationRecord
       all
     end
   end
+
+  def average_review_rating
+    @ratings = reviews.map { |review| review.rating.to_f }
+    return 0 if @ratings.nil?
+
+    @ratings.reduce(0) { |avg, curr_rating| avg + (curr_rating / reviews.length) }
+  end
+
+  def favorite?(user)
+    user_favorite_cocktails = user.favorites.map { |favorite| favorite.cocktail }
+    user_favorite_cocktails.include? self
+  end
 end

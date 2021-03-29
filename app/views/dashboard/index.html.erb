@@ -1,0 +1,74 @@
+<div class="dashboard-wrapper">
+  <div class="dashboard-profile-card">
+    <div class="dashboard-avatar">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/fedeval", class: "avatar-large" %>
+    </div>
+    <div class="dashboard-user-info">
+      <div class="dashboard-user-name">
+        <p>Federico Valenza</p> 
+      </div>
+      <div class="dashboard-user-data">
+        <div class="dashboard-card-data">
+          <i class="fas fa-cocktail"></i>
+          <%= @user_cocktails.count %>
+        </div>
+        <div class="dashboard-card-data">
+          <i class="fas fa-heart"></i>
+          <%= @user.favorites.count %>
+        </div>
+      </div>
+    </div>
+    <%= link_to "To Cocktails", cocktails_path, class: "btn dashboard-index-btn" %>
+  </div>
+  <div class="dashboard-body-card">
+    <h2><i class="fas fa-cocktail"></i> My Cocktails</h2>
+    <div class="scroll-list">
+      <% @user_cocktails.each do |cocktail| %>       
+        <div class="dashboard-user-cocktail-card">
+          <div class="cocktail-pic">
+            <%= link_to cocktail_path(cocktail) do %>
+              <%= cl_image_tag cocktail.photo.key, width: 120, height: 120, crop: :fill, class: "cocktail-img-small" %>
+            <% end %>
+          </div>
+          <div class="cocktail-info">
+            <div id="name-rating">
+              <p><strong><%= cocktail.name %></strong></p>
+              <p><%= "⭐️ #{cocktail.average_review_rating()}" %></p>
+            </div>
+            <div id="edit-delete">
+              <div id="edit">
+                <%= link_to edit_cocktail_path(cocktail) do %>
+                  <i class="far fa-edit icon"></i>
+                <% end %>              
+              </div>
+              <div id="delete">
+                <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <i class="far fa-trash-alt icon"></i>
+                <% end %>              
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="dashboard-body-card">
+    <h2><i class="fas fa-heart"></i> My Favorites</h2>
+    <div class="scroll-list">  
+      <% @user.favorites.each do |favorite| %>
+        <div class="dashboard-user-cocktail-card">
+          <div class="cocktail-pic">
+            <%= link_to cocktail_path(favorite.cocktail) do %>
+              <%= cl_image_tag favorite.cocktail.photo.key, width: 120, height: 120, crop: :fill, class: "cocktail-img-small" %>
+            <% end %>
+          </div>
+          <div id="name-rating">
+            <p><strong><%= favorite.cocktail.name %></strong></p>
+            <!-- TODO: connect user to review -->
+            <p><%= '⭐️' * 4.5 %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>    
