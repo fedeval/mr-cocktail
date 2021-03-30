@@ -35,7 +35,7 @@
           <h3>Reviews</h3>
             <% @cocktail.reviews.each do |review| %>
               <div class="review">
-                <p><%= '⭐️' * review.rating %></p>
+                <p class="star-rating" data-rating="<%= review.rating %>"></p>
                 <p><%= review.content %></p>
                 <p id="name"><i><%= review.user.full_name %></i></p>
               </div>
@@ -51,10 +51,5 @@
         </div>
       </div>
     </div>
-  </div>
- 
-
-
-
-  
+  </div>  
 </div>

@@ -17,7 +17,9 @@ import 'bootstrap';
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import { initSelect2 } from '../components/init_select2';
+import { starRating } from '../graphics/star_rating';
 
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
+  starRating();
 });
