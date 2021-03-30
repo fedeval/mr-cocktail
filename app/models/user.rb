@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :cocktails
   has_many :favorites
+  has_many :reviews
   
   validates :first_name, presence: true
   validates :last_name, presence: true

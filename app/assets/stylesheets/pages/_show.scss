@@ -32,3 +32,22 @@
   text-align: left;
   padding:  14px 5px;
 }
+
+.scroll-reviews {
+  height: 200px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+.review {
+  margin-bottom: 10px;
+  .star-rating {
+    color: gold;
+  }
+  p {
+    margin: 0;
+  }
+  #name {
+    font-size: 10px;
+  }
+}

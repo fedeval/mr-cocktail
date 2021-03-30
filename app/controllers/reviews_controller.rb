@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.cocktail = @cocktail
+    @review.user = current_user
     if @review.save
       @review.save
       redirect_to cocktail_path(@cocktail)
     else
-      @dose = Dose.new
       render 'cocktails/show'
     end
   end

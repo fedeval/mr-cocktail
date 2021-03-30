@@ -64,8 +64,7 @@
           </div>
           <div id="name-rating">
             <p><strong><%= favorite.cocktail.name %></strong></p>
-            <!-- TODO: connect user to review -->
-            <p><%= '⭐️' * 4.5 %></p>
+            <p class="star-rating" data-rating="<%= favorite.cocktail.reviews.find_by(user: current_user).rating %>"></p>
           </div>
         </div>
       <% end %>
