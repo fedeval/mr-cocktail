@@ -33,13 +33,15 @@
       <div class="show-grid" id="cocktail-reviews">
         <div class="review-display">
           <h3>Reviews</h3>
+          <div class="scroll-reviews">
             <% @cocktail.reviews.each do |review| %>
               <div class="review">
                 <p class="star-rating" data-rating="<%= review.rating %>"></p>
                 <p><%= review.content %></p>
                 <p id="name"><i><%= review.user.full_name %></i></p>
               </div>
-            <% end %> 
+            <% end %>             
+          </div>
         </div>
         <div class="review-form">
           <h3>Add a Review</h3>
