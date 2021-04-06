@@ -8,11 +8,12 @@
       <div class="cocktail-name">
         <h1>
           <%= @cocktail.name %>
-          <!-- TODO: fix UI -->
           <% if @cocktail.favorite?(current_user) %>
-            <%= '♥︎' %>
+            <i class="fas fa-heart" id="favorite-icon-added"></i>
           <% else %>
-            <%= link_to "Add to favorites", cocktail_favorites_path(@cocktail), method: :post %>    
+            <%= link_to cocktail_favorites_path(@cocktail), method: :post do %>  
+              <i class="far fa-heart" id="favorite-icon-add"></i>  
+            <% end %>
           <% end %>
         </h1>
       </div>
