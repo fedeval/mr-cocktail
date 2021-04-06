@@ -1,9 +1,34 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-profile-card {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    img {
+      margin-right: 20px;
+    }
+  }
+
+  .dashboard-index-btn {
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .dashboard-wrapper {
+    grid-template-columns: 15% 40% 40%;
+  }
+  
+  .dashboard-index-btn {
+  margin-top: auto;
+  }
+}
+
 .dashboard-wrapper {
   display: grid;
-  grid-template-columns: 15% 40% 40%;
   margin-top: 45px;
   margin-left: 10%;
   margin-right: 10%;
@@ -38,10 +63,6 @@
   .star-rating {
     color: gold;
   }
-}
-
-.dashboard-index-btn {
-  margin-top: auto;
 }
 
 .icon {
