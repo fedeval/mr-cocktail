@@ -1,13 +1,62 @@
-// Place all the styles related to the doses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@media (max-width: 768px) {
+  .edit-container {
+    flex-direction: column;
+  }
+
+  .edit-form, .doses-container {
+    margin-bottom: 40px;
+  }
+}
+
+.page-header {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-header {
+  border-bottom: 1px solid black;
+}
+
 .edit-container {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .doses-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.doses {
+  text-align: left;
+}
+
+.remove-dose {
+  display: flex;
+  justify-content: space-between;
+  &:last-child {
+    margin-bottom: 10px;
+  }
+}
+
+#remove-dose-icon {
+  margin-left: 10px;
+  color: red;
+  &:hover {
+    color: darkred;
+  }
+}
+
+.btn-edit {
+  width: 100%;
+}
+
+.buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
 }
