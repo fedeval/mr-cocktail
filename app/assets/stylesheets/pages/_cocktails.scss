@@ -1,21 +1,46 @@
-// Place all the styles related to the cocktails controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@media (max-width: 768px) {
+  .cocktails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .cocktails {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cocktails-wrapper {
+    margin: 0 5%;
+  }
+}
+
+@media (min-width: 1224px) {
+  .cocktails {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cocktails-wrapper {
+    margin: 0 5%;
+  }
+}
+
 body {
   background: white;
   text-align: center;
   padding-top: 70px;
 }
 
-.cocktails-wrapper {
-  margin: 45px 60px 0 60px;
-}
+.cocktails-wrapper > h1 {
+    font-weight: bold;
+    font-size: 60px;
+    text-decoration: underline rgba(120, 0, 0, .8);
+  }
 
 .cocktails {
   margin-top: 20px;
   display: grid;
   justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 32px;
   margin-bottom: 50px;
+  height: 80vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
