@@ -1,3 +1,40 @@
+@media (max-width: 768px) {
+  .show-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+
+  .show-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group {
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .show-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .show-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1080px) {
+  .show-container {
+    flex-direction: row;
+  }
+}
+
+.show-grid {
+  display: grid;
+}
+
 .show-container {
   display: flex;
 }
@@ -6,12 +43,6 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 100vh;
-}
-
-.show-grid {
-  display: grid;
-  grid-template-columns: 60% 40%;
 }
 
 .cocktail-name {
@@ -22,7 +53,7 @@
   font-weight: bold;
 }
 
-#cocktail-instructions {
+#cocktail-details {
   padding: 14px 5px;
   text-align: left;
   border-bottom: 1px solid black;

@@ -1,0 +1,45 @@
+@media (max-width: 768px) {
+  .cocktails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) {
+  .cocktails {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cocktails-wrapper {
+    margin: 0 5%;
+  }
+}
+
+@media (min-width: 1224px) {
+  .cocktails {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .cocktails-wrapper {
+    margin: 0 5%;
+  }
+}
+
+body {
+  background: white;
+  text-align: center;
+  padding-top: 70px;
+}
+
+.cocktails-wrapper > h1 {
+    font-weight: bold;
+    font-size: 60px;
+    border-bottom: 1px solid black;
+  }
+
+.cocktails {
+  margin-top: 20px;
+  display: grid;
+  justify-items: center;
+  gap: 32px;
+  height: 70vh;
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
