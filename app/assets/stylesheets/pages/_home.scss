@@ -1,4 +1,18 @@
-// Specific CSS for your home-page
+@media (max-width: 768px) {
+  .home-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search {
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    margin: 0;
+  }
+}
+
 body {
   height: 100vh;
 }
@@ -19,8 +33,4 @@ body {
 
 .home-actions {
   display: flex;
-}
-
-.search {
-  margin-right: 10px;
 }
