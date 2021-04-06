@@ -7,11 +7,11 @@ class User < ApplicationRecord
   has_many :cocktails
   has_many :favorites
   has_many :reviews
-  
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 
   def full_name
-    return "#{self.first_name} #{self.last_name}"
+    "#{first_name} #{last_name}"
   end
 end
