@@ -27,7 +27,7 @@ The app is meant to work with the following requirements:
 
 ### Environment variables ###
  
-This app relies on Cloudinary to host images, thus to be able to run it on your machine you'll need to create a Cloudinary account and add the `CLOUDINARY_URL` as an environment variable in a `.
+This app relies on Cloudinary to host images, thus to be able to run it on your machine you'll need to create a Cloudinary account at [https://cloudinary.com/](https://cloudinary.com/) and add your `CLOUDINARY_URL` as an environment variable in a `.
 env` which by default will be ignored by git as already added to a `.gitignore file`
 
 ### Gems and dependencies ###
