@@ -12,6 +12,8 @@ The app is a repository of cocktail recipes where users can - after signing up a
 * Open a cocktail details page where they can review and mark as favorite a cocktail
 * Manage their cocktail creations and favorites from a dashboard page
 
+A version of the app hosted on Heroku is available at [https://mr-cocktail-fedeval.herokuapp.com/](https://mr-cocktail-fedeval.herokuapp.com/)
+
 ---
 ## System Dependencies ##
 
